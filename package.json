@@ -1,0 +1,22 @@
+{
+  "name": "crm",
+  "version": "1.0.0",
+  "description": "course work",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mssql",
+    "express",
+    "druid"
+  ],
+  "author": "druid",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "mssql": "^3.3.0",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0"
+  }
+}
