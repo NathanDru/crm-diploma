@@ -1,12 +1,17 @@
+var path = require('path');
 var express = require('express');
 var sql = require('mssql');
+var bodyParser = require('body-parser')
+
+var api = require('./controllers');
 
 var app = express();
 
-app.get('/api/clients', (request, response) => new sql.Request()
-    .query(`select * from Clients`)
-    .then(result => response.json(result))
-    .catch(err => response.send(err)));
+app.use(express.static('public'))
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
+app.use('/api', api());
 
 sql.connect("mssql://sa:123@localhost/crm")
     .then(() => {

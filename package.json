@@ -14,6 +14,7 @@
   "author": "druid",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.15.1",
     "express": "^4.13.4",
     "mssql": "^3.3.0",
     "react": "^15.1.0",
