@@ -1,18 +1,30 @@
 var express = require('express');
-var sql = require('mssql');
+var dataAcessors = require('./dataAcessors');
+var Clients = new dataAcessors.Clients();
 
 module.exports = function router(params) {
     var router = express.Router();
 
     router.route('/clients')
-        .get((request, response) => new sql.Request()
-            .query(`select * from Clients`)
+        .get((request, response) => Clients.getAll()
             .then(result => response.json(result))
             .catch(err => response.send(err)))
-        .post((request, response) => new sql.Request()
-            .query(`insert into Clients (ID_manager, FIO) values (1, '${request.body.fio}')`)
+        .post((request, response) => Clients.create()
+            .then(result => response.json(result))
+            .catch(err => response.send(err)));
+          
+    router.route('/clients/:client_id')
+        .get((request, response) => Clients.getById(request.params.client_id)
             .then(result => response.json(result))
             .catch(err => response.send(err)))
+        // .put((request, response) => Clients.update(request.body)
+        //     .then(result => response.json(result))
+        //     .catch(err => response.send(err)))
+        .delete((request, response) => Clients.delete(request.params.client_id)
+            .then(result => response.json(result))
+            .catch(err => response.send(err)))
+
+
 
     return router;
 }
