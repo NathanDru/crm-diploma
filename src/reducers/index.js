@@ -1,1 +1,1 @@
-export {clients} from './clients.reducer';
+export {default as clients} from './clients.reducer';
