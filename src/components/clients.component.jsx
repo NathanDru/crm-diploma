@@ -5,7 +5,7 @@ const ClientsComponent = ({clients}) => (
     <div>
         <h2>Clients page</h2>
         <ul>
-            {clients.map(c => <li key={c.id}>{c.name}</li>)}
+            {clients.map(c => <li key={c.id}>{c.fio}</li>)}
         </ul>
     </div>
 );

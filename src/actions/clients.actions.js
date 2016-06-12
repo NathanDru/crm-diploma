@@ -1,4 +1,4 @@
-import {getJson} from './../services/ajax'
+import {getClients} from './../services/clients.service'
 
 export const REQUEST_CLIENTS = 'REQUEST_CLIENTS';
 
@@ -20,7 +20,7 @@ export function receiveClients(clients) {
 export function fetchClients() {
     return dispatch => {
         dispatch(requestClients());
-        getJson('api/clients')
+        getClients()
             .then(clients => dispatch(receiveClients(clients)));
     }
 }
