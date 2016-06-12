@@ -9,6 +9,7 @@ import thunk from 'redux-thunk';
 
 import App from './components/app';
 import Clients from './components/clients.component';
+import Orders from './components/orders.component';
 
 import * as reducers from './reducers';
 
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded',
                 <Route path="/" component={App}>
                     <IndexRoute component={Clients} />
                     <Route path="clients" component={Clients}/>
+                    <Route path="orders" component={Orders}/>
                 </Route>
             </Router>
         </Provider>,
